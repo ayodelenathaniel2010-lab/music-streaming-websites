@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact us | Top 15 Artists</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top-bar" id="top">
+    <nav class="main-nav" aria-label="Main">
+      <ul>
+         <li><a href="index.html">Home</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="artists.html">Artists</a></li>
+        <li><a href="songs.html">Songs</a></li>
+      </ul>
+    </nav>
+    <p class="brand">Top 15 Artists</p>
+  </header>
+
+  <header class="site-header">
+    <h1>Contact us</h1>
+    <p>Spotted a wrong number, want to suggest an artist, or have a question? Send us a message and we will reply by email.</p>
+  </header>
+
+  <main class="contact-layout">
+    <section class="card contact-card" aria-labelledby="form-title">
+      <h2 class="contact-title" id="form-title">Send a message</h2>
+      <form id="contact-form">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="topic">What is this about?</label>
+          <select id="topic" name="topic">
+            <option>General question</option>
+            <option>Wrong number or song</option>
+            <option>Suggest an artist</option>
+            <option>Advertising or partnership</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="button">Send message</button>
+        <p class="form-note">This opens your email app with your message ready to send.</p>
+      </form>
+    </section>
+
+    <aside class="card contact-card" aria-labelledby="details-title">
+      <h2 class="contact-title" id="details-title">Other ways to reach us</h2>
+      <dl class="details">
+        <dt>Email</dt>
+        <dd><a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></dd>
+        <dt>Response time</dt>
+        <dd>We usually reply within two working days.</dd>
+        <dt>Social</dt>
+        <dd>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>,
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </dd>
+      </dl>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+    <nav class="footer-nav" aria-label="Footer">
+      <ul>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="privacy.html">Privacy policy</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="legal.html">Legal</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+      </ul>
+    </nav>
+    <p>Artist data comes from Spotify's public figures and changes daily.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Opens the visitor's email app with the form filled in.
+    // Change SEND_TO to your real address (or connect the form to a form service later).
+    var SEND_TO = "hello@yourdomain.com";
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var f = e.target;
+      var subject = "[" + f.topic.value + "] from " + f.name.value;
+      var body = f.message.value + "\n\n" + f.name.value + "\n" + f.email.value;
+      window.location.href = "mailto:" + SEND_TO +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    });
+  </script>
+</body>
+</html>
